@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Clase1-RepasoHerencia/src"/>
+	<classpathentry kind="src" path="Clase1DemoPatrones/src/main/java"/>
+	<classpathentry kind="src" path="Clase3Web/src/main/java"/>
+	<classpathentry kind="src" path="Clase4ProyectoWeb/Clase4ProyectoWeb/src"/>
+	<classpathentry kind="src" path="Clase5CommitAndRollBack/src"/>
+	<classpathentry kind="src" path="Clase6COmmitAndRollBack/src"/>
+	<classpathentry kind="src" path="JUnitClase5/src"/>
+	<classpathentry kind="lib" path="Clase1DemoPatrones/src/main/webapp/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="Clase4ProyectoWeb/Clase4ProyectoWeb/WebContent/WEB-INF/lib/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="Clase5CommitAndRollBack/librerias/mysql-connector-java-5.0.8-bin.jar"/>
+	<classpathentry kind="lib" path="Clase6COmmitAndRollBack/Lib/sqlite-jdbc-3.7.2.jar"/>
+	<classpathentry kind="output" path="Clase1-RepasoHerencia/bin"/>
+</classpath>

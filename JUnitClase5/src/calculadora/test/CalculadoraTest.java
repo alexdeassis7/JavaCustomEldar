@@ -1,11 +1,13 @@
-package calculadora;
+package calculadora.test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
-public class CalculadorTest {
+import calculadora.Calculadora;
+
+public class CalculadoraTest {
 
 	@Test // esta anotacion marca al metodo como una prueba unitaria
 	public void testSuma() {
