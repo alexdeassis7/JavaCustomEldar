@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.1.xsd
+">
+
+	<!-- aqui definimos el generador de beans que nos va a proporcionar los 
+		objetos , este seria el "contenedor" que no dara beans del tipo Empleado -->
+
+	<!-- aqui ponemos un id que seria como un alias para darle nombre al bean -->
+	<!-- y tambien la ruta de la clase de la cual queremos crear los objetos 
+		, por defecto el "scope" de spring es singleto , pero podemos -->
+	<!-- modificarlo si lo requiere la app -->
+	<bean id="miEmpleado" 
+	      class="com.eldar.DirectorEmpleado"
+		  scope="prototype">
+		  <constructor-arg ref="miInforme"></constructor-arg>
+	</bean>
+
+	<!-- creamos un bean para la inyeccion de dependencia -->
+	<bean id="miInforme" 
+	      class="com.eldar.Informe">
+	</bean>
+
+</beans>
