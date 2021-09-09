@@ -1,36 +1,67 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.empresa</groupId>
-  <artifactId>tutorial_maven</artifactId>
-  <packaging>pom</packaging>
-  <version>1.0</version>
+	<groupId>com.empresa</groupId>
+	<artifactId>tutorial_maven</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0</version>
 
-  <name>tutorial_maven</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+	<name>tutorial_maven</name>
+	<!-- FIXME change it to the project's website -->
+	<url>http://www.example.com</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<!-- se queremos especificar que se use como minimo la version 1.2.7(inclusive) 
+			y como maximo la version -->
+		<!-- 1.2.17 exclusive -->
+		<!-- <log4j.version>[1.2.7,1.2.17)</log4j.version> -->
 
-  <dependencies>
- <!-- https://mvnrepository.com/artifact/junit/junit -->
-      <dependency>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-          <version>4.13</version>
-          <scope>test</scope>
-      </dependency>
-  </dependencies>
+		<!-- podemos tambien dejar un limite abierto , por ej como minimo la version 
+			1.2.7 y como máximo la que sea -->
+		<!-- <log4j.version>[1.2.7,)</log4j.version> -->
+		<!-- o al reves si queremos indicar qeu user versio menor a la 1.2.9 -->
+		<log4j.version>(,1.2.9)</log4j.version>
 
-<!-- aca le indicamos al proyecto padre cuales son sus modulos hijos  -->
-<modules>
-  <module>tutorial_maven_jar</module>
-  <module>tutorial_maven_war</module>
-</modules>
+	</properties>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.13</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<!-- aca le indicamos al proyecto padre cuales son sus modulos hijos -->
+	<modules>
+		<module>tutorial_maven_jar</module>
+		<module>tutorial_maven_war</module>
+	</modules>
+
+
+<!-- 	<repositories> -->
+<!-- 		<repository> -->
+<!-- 			<id>org.springframework.maven</id> -->
+<!-- 			<url>https://maven.org.springframework</url> -->
+<!-- 		</repository> -->
+<!-- 			<repository> -->
+<!-- 			<id>id del repo dos </id> -->
+<!-- 			<url>https://maven.org.springframework</url> -->
+<!-- 		</repository> -->
+<!-- 		<repository> -->
+<!-- 			<id>id del repo tres</id> -->
+<!-- 			<url>https://maven.org.springframework</url> -->
+<!-- 		</repository> -->
+	
+<!-- 	</repositories> -->
 
 </project>

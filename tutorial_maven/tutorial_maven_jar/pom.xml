@@ -1,56 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <!-- aca le indicamos con parent cual es su proyecto padre del cual hereda variables , dependencias ...etc  -->
-  <parent>
-    <artifactId>tutorial_maven</artifactId>
-    <groupId>com.empresa</groupId>
-    <version>1.0</version>
-  </parent>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- aca le indicamos con parent cual es su proyecto padre del cual hereda 
+		variables , dependencias ...etc -->
+	<parent>
+		<artifactId>tutorial_maven</artifactId>
+		<groupId>com.empresa</groupId>
+		<version>1.0</version>
+	</parent>
 
-  <groupId>com.empresa</groupId>
-  <artifactId>tutorial_maven_jar</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0</version>
+	<groupId>${parent.groupId}</groupId>
+	<artifactId>tutorial_maven_jar</artifactId>
+	<packaging>jar</packaging>
+	<version>${parent.version}</version>
 
-  <name>tutorial_maven_jar</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+	<name>tutorial_maven_jar</name>
+	<!-- FIXME change it to the project's website -->
+	<url>http://www.example.com</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
-<!--     <project.basedir>/home/micarpeta/soyUnaVaribleMisticaDeMaven</project.basedir> -->
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<!-- <project.basedir>/home/micarpeta/soyUnaVaribleMisticaDeMaven</project.basedir> -->
+	</properties>
 
-  <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.11</version>
-<!--       <scope>system</scope> -->
-<!--       <systemPath>${project.basedir}/libs/custom-dependency-1.2.2.jar</systemPath> -->
-    </dependency>
-       <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.22</version>
-<!--       <scope>system</scope> -->
-<!--       <systemPath>${project.basedir}/libs/custom-dependency-1.2.2.jar</systemPath> -->
-    </dependency>
-    
-  </dependencies>
-  
-<!--   scopes de dependencias : 
-		1)compile: es el que se usa por default, se usan en el classpath y serán incluidas en el artefacto final 
-		2)provided: se usas en la fase de compile y de test , pero no se incluyen en el artefacto final .
-		3)runtime: se usa en la ejecucion de la app pero no al compilar 
-		4) test : solo se usa para compilar y ejecutar los test del proyecto ,no se incluyen al artefacto final 
-		5) system : igual al provided , pero aqui debes especificar el path de tu disco duro al .jar que contiene la dependencia 
-					 y asi evitamos que maven la b usque en los repositorios 
-		6)import :Permite importar otros archivos pom para simular herencia multiple , ya que maven solo permite heredar de un POM padre 
-		
--->
-  
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<!-- <scope>system</scope> -->
+			<!-- <systemPath>${project.basedir}/libs/custom-dependency-1.2.2.jar</systemPath> -->
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.22</version>
+			<!-- <scope>system</scope> -->
+			<!-- <systemPath>${project.basedir}/libs/custom-dependency-1.2.2.jar</systemPath> -->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+<!-- 			<optional>true</optional> -->
+		</dependency>
+	</dependencies>
+
+	<!-- scopes de dependencias : 1)compile: es el que se usa por default, se 
+		usan en el classpath y serán incluidas en el artefacto final 2)provided: 
+		se usas en la fase de compile y de test , pero no se incluyen en el artefacto 
+		final . 3)runtime: se usa en la ejecucion de la app pero no al compilar 4) 
+		test : solo se usa para compilar y ejecutar los test del proyecto ,no se 
+		incluyen al artefacto final 5) system : igual al provided , pero aqui debes 
+		especificar el path de tu disco duro al .jar que contiene la dependencia 
+		y asi evitamos que maven la b usque en los repositorios 6)import :Permite 
+		importar otros archivos pom para simular herencia multiple , ya que maven 
+		solo permite heredar de un POM padre -->
+
 </project>
