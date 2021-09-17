@@ -25,7 +25,9 @@ public class DemoUsoEmpleado {
 
 		// paso 2)
 		// solicitarle el bean al archivo xml pasandole el alias o id ,
-		Empleados juan = contexto.getBean("miEmpleado", Empleados.class);
+		Empleados juan = contexto.getBean("miEmpleado", Empleados.class );
+		
+		
 
 		// paso 3) utilizamos el objeto que nos brindo Spring de su contenedor
 		System.out.println("Utilizamos nuestro primer bean : " + juan.getTareas());
