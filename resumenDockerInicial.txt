@@ -1,0 +1,162 @@
+Intalacion en win 10 :
+
+1. debemos tener la version 10 professional o enterprice para tener el hyper-v ... antes de win
+ 10 docker corria por virtual box en una imagen linux ocea que no era nativo
+
+a . descargar docker de la pagina
+b.intalar y reiniciar la pc
+c. ejecutar comando docker info para ver la info de intalacion
+d. buscar en windowds administracion de Hyper-V para ver que este corriendo docker
+
+2. Contenerdores VS Imagenes :
+
+Imagenes : son la base para poder crear los contenedores , una especie de plantilla
+preintalada para la creacion de contenedores , podemos crearlas nosotros o descargar de la comunidad
+(Docker hub o por cdm con Docker search)
+
+Contenedores :con tiene lo necesario para ejecutar nuestras aplicaciones
+
+por ejemplo : podriamos tener una imagen de Debian y dentro de esa imagen agregar un Apache httpd
+y un tomcat , con todo estos creamos un nuevo container propio con este funcionamiento
+
+3.   Imagenes DockerHub y Docker Search
+
+DockerHub : comunidad donde podemos ofrecer nuestras imagenes y tambien donde bajar imagenes de otros
+hub.docker.com , es un repositorio de imagenes
+
+como buscar imagenes de docker en cmd??
+
+a. docker search NombreDeImagen:numeroDeVersion (opcional) ( este comando lista todas las imagenes )
+b. como descargar la imagen ? buscar y ejecutar el cmd , por ej: docker pull ubuntu o
+docker pull ubuntu:14.04 esto traeria la lversion 14.04 de ubuntu
+
+una vez descargada la imagen podremos usarla para crear nuestros contenedores
+
+c. el comando docker images nos lista todas nuestras imagenes con cierta info
+
+TASK: seria la version de la imagen (Latest seria la imgen estandar)
+IMAGE ID: sirve para la administracion del container
+CREATED:fecha de creacion de la imagen
+SIZE:tamaño
+
+4. Mi PRIMER CONTAINER
+
+a. docker run hello-world :este comando descarga y ejecutar
+
+el comando docker ps nos muestra todos los contenedores que tenemos en ejecucion
+
+docker ps -a nos muestra las ejecuciones anteriores (exited)
+
+
+
+
+
+
+5.   EL COMANDO DOCKER RUN
+
+docker rm ( remueve)
+
+docker run ubuntu ls (nos lista el contenido de nuestro contenedor ocea el raiz)
+
+docker run -i -t ubuntu bash ( con esto ejecutamos un bash del container)
+
+
+
+
+6. LISTAR IMAGENES EN DOCKER
+
+docker searh nombreDeImagen , nos muestra todas la imagenes
+
+docker images  : nos muestra las imagenes descargadas
+ 
+docker images --help : nos smuestra todo los comandos que podemos ejecutar
+
+
+
+7. CONTENEDORES EN DOCKER
+
+
+docker ps : lista los contenedores que estan corriendo
+
+docker ps -a : lista los contenedores que estan corriendo ,con error y apagados tambien
+
+docker ps --help : lista la ayuda
+
+docker start 2feaf57f7ead : start + IDcontainer sirve para iniciar contenedores
+
+docker attach 2feaf57f7ead : nos permite conecta a un container que se este ejecutando
+
+
+8.         CONTENEDORES INTERACTIVOS
+
+
+CREAR :
+a. descargamos la imagen , esta imagen debe permitir que el contenedor sea interactivo ocea que
+nos permita ingresar al bash
+
+b. ejecutamos :  docker run -i -t ubuntu bash , -i es el standar input y -t es para tener la pseudo-terminal
+
+
+c. establecer nombre a un contenedor  : docker run --name NombreDeContenedor -it ubuntu
+
+
+SALIR DEL DOCKER SIN detenerlo:
+
+una vez dentro del bash del contenedor interactivo , presionamos CTRL + P + Q
+
+para volver a conectarce al container usamos: docker attach bf8482657457 ()
+con los primeros 3 numeros del id ya nos podemos conectar
+
+
+INICIAR Y DETENER CONTENEDORES :
+
+docker start IDcontainer,
+docker stop IDcontainer,
+
+
+9. Personalizar Containers con imagen de Ubuntu en Docker
+
+a.Docker run -it ubuntu:16.04 /bin/bash (crear y ejecuta un contenedor con el bash)
+b.apt-get update (para actualizar las dependencias )
+c.apt-get install nano (instala el paque nano que es un editor de texto )
+
+
+
+
+
+10. CREAR UNA IMAGEN en base a un contenedor ya modificado
+
+a.descargar una imagen , actualizar las dependencias y hacer las modificaciones que queremos
+por ejemplo crear carpetas intalar programas etc
+
+b. salimos del contenedor sin detenerlo (CTRL + P + Q)\
+
+c. ejecutar el comando " docker commit idcontenedor nombredeimagen"  (este comando arroja un sha)
+
+
+d. ejecutar docker images y ver que aparezca nuestra imagen creada
+
+
+
+c. "docker run -it ubuntualex " con este comando ejecutamos nuestra imagen
+
+OTRA FORMA DE CREARLO (sin bash ,con apache 2 )
+
+este ejemplo ejecutara automaticamente un server web apache
+
+a. apt-get update (para poder descargar cosas )
+
+b. apt-get install apache2  (para descagar el server apache web)
+
+c. service apache2 start (para iniciar el servidor ) y  service apache2 status para validar que este corriendo
+
+
+d. docker commit --change= -c "EXPOSE 85" IDDECONTAINER nombredecontainer
+
+--changes : es para crear un cambio dentro de la imagen
+CMD :le dice cual es la finalidad de nuestra imagen en este caso le decimos que ejecute el servicio de apache2ctl
+-c expose : sera el puerto por el cual se va a conectar
+ 
+ejecutamos este comando y nos crea la imagen debe arrojar un sha ejecutamos docker imagens y vemos que nos deberia haber creado la nueva imagen
+
+
