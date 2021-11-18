@@ -1,0 +1,9 @@
+version: '2'
+services: :
+  tomcat1:
+    build: tomcat1/.
+  tomcat2:
+    build: tomcat2/.
+  httpd:
+    build: httpd/.  
+    
